@@ -1,0 +1,121 @@
+$main-white: #fff;
+
+@font-face {
+    font-family: "Tungsten";
+    src: url("./fonts/tungsten.woff2") format("woff2"),
+        url("./fonts/tungsten.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Rozha";
+    src: url("./fonts/RozhaOne-Regular.ttf") format("ttf");
+}
+.App {
+    text-align: center;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    border: 1px solid red;
+    overflow-x: hidden;
+    background-color: rgb(24, 24, 24);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 4rem;
+    border: 2px solid blue;
+    background-color: rgb(24, 24, 24);
+    box-sizing: border-box;
+    z-index: 999;
+    .show-nav {
+        width: 50%;
+    }
+    .show-shade {
+        width: 100%;
+    }
+}
+.content-standard {
+    max-width: 1400px;
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+.border {
+    border: 2px solid red;
+}
+
+.full-size {
+    height: 100%;
+    width: 100%;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.align-center {
+    align-items: center;
+}
+.justify-center {
+    justify-content: center;
+}
+.space-between {
+    justify-content: space-between;
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    border: 3px solid green;
+    box-sizing: border-box;
+    h1 {
+        font-size: 200px;
+        margin: 0;
+        line-height: 0.8;
+    }
+    h2 {
+        font-family: "Rozha One";
+        font-weight: 400;
+        margin: 0;
+        font-size: 60px;
+    }
+    div {
+        padding: 0;
+    }
+    .heroText {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+        height: 100%;
+        text-align: left;
+        color: $main-white;
+    }
+    .heroImg {
+        width: 50%;
+        height: 100%;
+        img {
+            height: 500px;
+        }
+    }
+    .heroBg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 40%;
+        left: 0;
+        opacity: 0.3;
+        z-index: -1;
+    }
+}
