@@ -1,20 +1,36 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+import emailjs from "emailjs-com";
+import { init } from "emailjs-com";
+
+init("user_nZuozMy1SFDWruneqVgFw");
 
 const DefaultForm = () => {
     const { register, handleSubmit, errors, watch, reset } = useForm();
     let [formOk, setFormOk] = useState(false);
-    const onSubmit = (data) => {
-        if (data) {
-            setFormOk(true);
-        } else {
-            console.log("Form data not ok.");
-        }
+
+    const sendEmail = (e, data) => {
+        e.preventDefault();
+        emailjs
+            .sendForm(
+                "gmail",
+                "template_dn77jyq",
+                e.target,
+                "user_nZuozMy1SFDWruneqVgFw"
+            )
+            .then(
+                (result) => {
+                    console.log(result.text);
+                    setFormOk(true);
+                },
+                (error) => {
+                    console.log(error.text);
+                }
+            );
+        e.target.reset();
     };
-    // function resetForm() {
-    //     setFormOk(false);
-    // }
+
     formOk
         ? setTimeout(() => {
               setFormOk(false);
@@ -23,8 +39,10 @@ const DefaultForm = () => {
 
     return (
         <FormComp
-            onSubmit={handleSubmit(onSubmit)}
-            action="mailto: davvelars@hotmail.com"
+            onSubmit={sendEmail}
+            action="MAILTO:davvelars@hotmail.com"
+            method="post"
+            enctype="text/plain"
             className="form-component"
         >
             <h2>Fill out the form and I'll get back to you.</h2>
@@ -82,7 +100,7 @@ const DefaultForm = () => {
                 )}
             </div>
             <div>
-                <input
+                <textarea
                     type="text"
                     name="message"
                     placeholder="message"
@@ -154,7 +172,9 @@ const FormComp = styled.form`
             font-size: 14px;
         }
     }
-    input {
+    input,
+    textarea {
+        font-family: "Neue Montreal";
         color: white;
         width: 100%;
         background: transparent;
