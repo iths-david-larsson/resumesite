@@ -1,44 +1,44 @@
 import React from "react";
-import '../App.scss'
-import styled from 'styled-components';
+import "../App.scss";
+import styled from "styled-components";
 
-const Logo = styled.div`
-height: 70%;
-margin: 0;
-display: flex;
-flex-direction: row;
-align-items: center;
-
-svg {
-    height: 100%;
-    margin-right: 1rem;
-}
-
-.logotype-name {
-    border-left: 2px solid white;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 0 0 0 1rem;
-    color: white;
+const Logo = styled.a`
+    height: 35px;
     margin: 0;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    text-align: left;
-    
-    p {
-        margin: 0;
-        padding: 0;
-        font-family: 'Tungsten', 'Helvetica Neue';
-        font-size: 1.2rem;
-        letter-spacing: 10px;
+    flex-direction: row;
+    align-items: center;
+
+    svg {
+        height: 30px;
+        margin-right: 1rem;
     }
-}
-`
+
+    .logotype-name {
+        border-left: 2px solid white;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 0 0 0 1rem;
+        color: white;
+        margin: 0;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        text-align: left;
+
+        p {
+            margin: 0;
+            padding: 0;
+            font-family: "Tungsten", "Helvetica Neue";
+            font-size: 1rem;
+            letter-spacing: 5px;
+        }
+    }
+`;
 function SiteLogo() {
     return (
-        <Logo>
+        <Logo href="#hero-section">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.78 60.003">
                 <g id="DL-Logo" transform="translate(-6.777 -7.423)">
                     <path
